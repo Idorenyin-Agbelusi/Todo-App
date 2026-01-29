@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+    <h1>My Todo List</h1>
+    <form class="todo-form" action="/add" method="POST">
+        <input type="text" id="todo" name="todo" required>
+        <input type="submit" value="Add">
+    </form>
+    <ul class="todo-list">
+        <% if(todo.length===0) { %>
+            <h2 class="empty">No task yet</h2>
+            <% } else{ %>
+                <% todo.forEach(element=> { %>
+                    <li class="<%= element.complete ? 'completed':'' %>">
+                        <span>
+                            <%= element.task %>
+                        </span>
+                        <div class="action">
+                            <a href="/toggle/<%= element._id %>">✔</a>
+                            <a href="/edit/<%= element._id %>">✎</a>
+                            <a href="/delete/<%= element._id %>" class="delete">✖</a>
+                        </div>
+                    </li>
+                    <%}); %>
+                        <% } %>
+    </ul>
+<%- include("partials/footer.ejs") %>
