@@ -7,7 +7,7 @@ import todoRoutes from "./routes/todoRoutes.js";
 const app = express();
 const port = process.env.PORT || 3000;
 
-const urii = `mongodb+srv://${process.env.MONGO_USER}:${encodeURIComponent(process.env.MONGO_PASSWORD)}@${process.env.MONGO_CLUSTER_DETAIL}/`
+const uri = `mongodb+srv://${process.env.MONGO_USER}:${encodeURIComponent(process.env.MONGO_PASSWORD)}@${process.env.MONGO_CLUSTER_DETAIL}/`
 
 if(process.env.NODE_ENV !== "test"){
     mongoose.connect(uri);
